@@ -9,15 +9,16 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	int n, g = 0, flag = 0;
-    /* call our global struct variable from  monty.h*/
+	/* call our global struct variable from  monty.h*/
 	if (!(global.arg))
-    { fprintf(stderr, "L%d: usage: push integer\n", line_number);
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		fclose(global.file);
 		free(global.content);
 		free_stack(*stack);
-		exit(EXIT_FAILURE); 
-    }
-    else
+		exit(EXIT_FAILURE);
+	}
+	else
 	{
 		if (global.arg[0] == '-')
 			g++;
@@ -26,13 +27,14 @@ void push(stack_t **stack, unsigned int line_number)
 			if (global.arg[g] > 57 || global.arg[g] < 48)
 				flag = 1; }
 		if (flag == 1)
-		{ fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			fclose(global.file);
 			free(global.content);
 			free_stack(*stack);
-			exit(EXIT_FAILURE); 
-        }
-    }
+			exit(EXIT_FAILURE);
+		}
+	}
 	/* convert global.arg variable to integer*/
 	n = atoi(global.arg);
 	if (global.flag == 0)
@@ -40,5 +42,3 @@ void push(stack_t **stack, unsigned int line_number)
 	else
 		addqueue(stack, n);
 }
-
-

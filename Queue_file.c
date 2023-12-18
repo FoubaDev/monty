@@ -8,7 +8,7 @@
  */
 void print_queue(stack_t **head, unsigned int line_number)
 {
-        /* handle error of  unused variable */
+    /* handle error of  unused variable */
 	(void)head;
 	(void)line_number;
 	global.flag = 1;
@@ -37,15 +37,14 @@ void addqueue(stack_t **head, int n)
 		while (current->next)
 			current = current->next;
 	}
-    if (current)
+	if (current)
 	{
 		current->next = new_node;
 		new_node->prev = current;
 	}
-    else
+	else
 	{
 		*head = new_node;
 		new_node->prev = NULL;
 	}
-	
 }
