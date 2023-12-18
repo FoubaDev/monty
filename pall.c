@@ -1,22 +1,23 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "monty.h"
-#include <sys/types.h>  
-
 
 /**
- * pall - prints all the values on the stack, from the top of the stack.
- *@line_number - int value to push
- * Return: Nothing
+ * f_pall - prints all value  on the stack
+ * @stack: stack stack
+ * @line_number: no used
+ * Return: no return
  */
-
 void pall(stack_t **stack, unsigned int line_number)
 {
-		
-	stack_t *current = *stack;
-	for (; current; current = current->next) 
-	{
-		printf("%d\n", current->n);
-	}
+	stack_t *h;
+    /* ignore unused variable */
 	(void)line_number;
+    
+	h = *stack;
+	if (h == NULL)
+		return;
+	while (h)
+	{
+		printf("%d\n", h->n);
+		h = h->next;
+	}
 }
