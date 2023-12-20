@@ -45,6 +45,8 @@ typedef struct global_s
 	int flag;
 } global_t;
 extern global_t global;
+/* prototyoes functions */
+void initializeGlobal(global_t *global);
 void push(stack_t **head, unsigned int number);
 void pall(stack_t **head, unsigned int number);
 int compile(char *content, stack_t **stack, unsigned int counter, FILE *file);
