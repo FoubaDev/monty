@@ -1,24 +1,25 @@
 #include "monty.h"
 
 /**
- * print_queue - prints the top
- * @head: stack head
- * @line_number: line_number
- * Return: nothing
+ * print_queue - Prints the top of the queue
+ * @head: Pointer to the head of the queue
+ * @line_number: Line number
+ *
+ * Return: Nothing
  */
 void print_queue(stack_t **head, unsigned int line_number)
 {
-    /* handle error of  unused variable */
 	(void)head;
 	(void)line_number;
 	global.flag = 1;
 }
 
 /**
- * addqueue - add element to the tail
- * @n: new element
- * @head: head of the stack
- * Return: nothing
+ * addqueue - Adds an element to the tail of the queue
+ * @n: New element
+ * @head: Pointer to the head of the queue
+ *
+ * Return: Nothing
  */
 void addqueue(stack_t **head, int n)
 {

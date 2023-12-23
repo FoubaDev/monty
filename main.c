@@ -4,11 +4,7 @@
 
 #define MAX_LINE_LENGTH 1024
 
-/**
-*init_global - initialize global variable
-* Return: global
-*/
-
+/* define a global variable*/
 global_t global;
 
 /**

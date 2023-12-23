@@ -56,7 +56,6 @@ extern global_t global;
 /* prototyoes functions */
 global_t init_global(void);
 void push(stack_t **head, unsigned int number);
-
 void pall(stack_t **head, unsigned int number);
 int compile(char *content, stack_t **stack, unsigned int counter, FILE *file);
 void free_stack(stack_t *head);
