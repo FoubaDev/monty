@@ -15,8 +15,8 @@ int is_arg_digit(char *arg)
 		if (arg[i] == '-' && i == 0)
 			continue;
 		if (!isdigit(arg[i]))
-			return 1;
+			return (1);
 	}
 
-	return 0;
+	return (0);
 }

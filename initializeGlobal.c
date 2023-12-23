@@ -1,16 +1,13 @@
 #include "monty.h"
 
-/*
- * initializeGlobal - init global variable
- *@global - pointer to stack global
- *
- * Reurn - nothing
- */
+/**
+*init_global - initialize global variable
+* Return: global
+*/
 
-void initializeGlobal(global_t *global)
+global_t init_global(void)
 {
-	global->arg = NULL;
-	global->file = NULL;
-	global->content = NULL;
-	global->flag = 0;
+	global_t global = {NULL, NULL, NULL, 0};
+
+	return (global);
 }

@@ -37,6 +37,14 @@ typedef struct instruction_s
 } instruction_t;
 
 /* define a struct that contains global variables*/
+/**
+ * struct global_s - define struct that contains our global variable
+ * @arg: number of argument
+ * @file: file to read
+ * @content: content to read
+ * @flag: integer to between last and next node;
+ *
+ */
 typedef struct global_s
 {
 	char *arg;
@@ -46,8 +54,9 @@ typedef struct global_s
 } global_t;
 extern global_t global;
 /* prototyoes functions */
-void initializeGlobal(global_t *global);
+global_t init_global(void);
 void push(stack_t **head, unsigned int number);
+
 void pall(stack_t **head, unsigned int number);
 int compile(char *content, stack_t **stack, unsigned int counter, FILE *file);
 void free_stack(stack_t *head);

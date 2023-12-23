@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * complie - executes the opcode
+ * compile - executes the opcode
  * @stack: head of linked list - stack
  * @counter: line_counter
  * @file: pointer to file
@@ -24,7 +24,7 @@ int compile(char *content, stack_t **stack, unsigned int counter, FILE *file)
 		return (0);
 	global.arg = strtok(NULL, " \n\t");
 	while (array_instruction[i].opcode && op)
-	{
+		{
 		if (strcmp(op, array_instruction[i].opcode) == 0)
 		{
 			array_instruction[i].f(stack, counter);

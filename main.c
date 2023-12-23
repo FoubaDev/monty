@@ -3,7 +3,20 @@
 #include <stdlib.h>
 
 #define MAX_LINE_LENGTH 1024
-global_t global = {NULL, NULL, NULL, 0};
+
+/**
+*init_global - initialize global variable
+* Return: global
+*/
+
+global_t global;
+
+/**
+ *main - monty interpreter
+ *@argc: number of argument
+ *@argv: array of argument
+ *Return: nothing
+ */
 
 int main(int argc, char *argv[])
 {
@@ -11,6 +24,8 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	FILE *file;
 	unsigned int line_number = 0;
+
+	global = init_global();
 
 	if (argc != 2)
 	{

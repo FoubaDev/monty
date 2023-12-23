@@ -6,6 +6,7 @@
  * @line_number: line number
  * Return: no return
  */
+
 void push(stack_t **stack, unsigned int line_number)
 {
 	int n, g = 0, flag = 0;
