@@ -16,8 +16,8 @@ void print_queue(stack_t **head, unsigned int line_number)
 
 /**
  * addqueue - Adds an element to the tail of the queue
- * @n: New element
  * @head: Pointer to the head of the queue
+ * @n: New element
  *
  * Return: Nothing
  */
@@ -30,6 +30,7 @@ void addqueue(stack_t **head, int n)
 	if (new_node == NULL)
 	{
 		printf("Error\n");
+		exit(EXIT_FAILURE);
 	}
 	new_node->n = n;
 	new_node->next = NULL;
@@ -37,9 +38,6 @@ void addqueue(stack_t **head, int n)
 	{
 		while (current->next)
 			current = current->next;
-	}
-	if (current)
-	{
 		current->next = new_node;
 		new_node->prev = current;
 	}

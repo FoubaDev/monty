@@ -1,8 +1,11 @@
 #include "monty.h"
 
 /**
- * free_stack - free memory used by a stac
- * @head: head of the stack
+ * free_stack - Free memory used by a stack
+ * @head: Head of the stack
+ *
+ * Description: This function frees the memory used by a stack.
+ * It iterates through the stack, freeing each node, until the end.
  */
 void free_stack(stack_t *head)
 {
@@ -16,4 +19,3 @@ void free_stack(stack_t *head)
 		head = current;
 	}
 }
-

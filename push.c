@@ -11,7 +11,7 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	int n, g = 0, flag = 0;
 
-	if (!(global.arg))
+	if (!global.arg)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		fclose(global.file);
@@ -25,7 +25,7 @@ void push(stack_t **stack, unsigned int line_number)
 			g++;
 		while (global.arg[g] != '\0')
 		{
-			if (global.arg[g] > '9' || global.arg[g] < '0')
+			if (global.arg[g] < '0' || global.arg[g] > '9')
 			{
 				flag = 1;
 				break;

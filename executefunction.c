@@ -1,12 +1,13 @@
 #include "monty.h"
 
 /**
- * compile - executes the opcode
- * @stack: head of linked list - stack
- * @counter: line_counter
- * @file: pointer to file
- * @content: line content
- * Return: nothing
+ * compile - Executes the opcode
+ * @content: Line content
+ * @stack: Head of the linked list (stack)
+ * @counter: Line counter
+ * @file: Pointer to the file
+ *
+ * Return: 0 on success, 1 on failure
  */
 int compile(char *content, stack_t **stack, unsigned int counter, FILE *file)
 {
@@ -24,7 +25,7 @@ int compile(char *content, stack_t **stack, unsigned int counter, FILE *file)
 		return (0);
 	global.arg = strtok(NULL, " \n\t");
 	while (array_instruction[i].opcode && op)
-		{
+	{
 		if (strcmp(op, array_instruction[i].opcode) == 0)
 		{
 			array_instruction[i].f(stack, counter);
@@ -42,4 +43,3 @@ int compile(char *content, stack_t **stack, unsigned int counter, FILE *file)
 	}
 	return (1);
 }
-

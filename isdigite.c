@@ -1,8 +1,9 @@
 #include "monty.h"
 #include <ctype.h>
+
 /**
- * is_arg_digit - check if a string is a valid integer
- * @arg: string to check
+ * is_arg_digit - Check if a string is a valid integer
+ * @arg: String to check
  *
  * Return: 0 if the string is a valid integer, 1 otherwise
  */
