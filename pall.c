@@ -1,26 +1,21 @@
 #include "monty.h"
-
 /**
- * pall - prints all values on the stack
- * @stack: pointer to the stack
- * @line_number: line number (unused)
- *
- * Return: void
+ * pall - print the stack from the beginning to the end
+ * @stack: stack to be printed
+ * @line_number: var not used.
+ * Return: nothing
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *h;
+	size_t i = 0;
+	stack_t *temp = *stack;
 
-	/* ignore unused variable */
 	(void)line_number;
 
-	h = *stack;
-	if (h == NULL)
-		return;
-
-	while (h)
+	for (i = 0; temp != NULL; i++)
 	{
-		printf("%d\n", h->n);
-		h = h->next;
+		fprintf(stdout, "%d\n", temp->n);
+		temp = temp->next;
 	}
+
 }

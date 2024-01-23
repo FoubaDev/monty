@@ -1,9 +1,10 @@
-#ifndef MONTY_H
-#define MONTY_H
+#ifndef MONTY_
+#define MONTY_
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
+#include <unistd.h>
 #include <ctype.h>
 
 /**
@@ -13,7 +14,7 @@
  * @next: points to the next element of the stack (or queue)
  *
  * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO
+ * for stack, queues, LIFO, FIFO Holberton project
  */
 typedef struct stack_s
 {
@@ -28,7 +29,7 @@ typedef struct stack_s
  * @f: function to handle the opcode
  *
  * Description: opcode and its function
- * for stack, queues, LIFO, FIFO
+ * for stack, queues, LIFO, FIFO Holberton project
  */
 typedef struct instruction_s
 {
@@ -36,30 +37,38 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* define a struct that contains global variables*/
 /**
- * struct global_s - define struct that contains our global variable
- * @arg: number of argument
- * @file: file to read
- * @content: content to read
- * @flag: integer to between last and next node;
+ * struct free_s - free the var noted
+ * @file: file opened
+ * @buffer: buffer of getline
  *
+ * Description: file and buffer
+ * for stack, queues, LIFO, FIFO Holberton project
  */
-typedef struct global_s
+typedef struct free_s
 {
-	char *arg;
 	FILE *file;
-	char *content;
-	int flag;
-} global_t;
-extern global_t global;
-/* prototyoes functions */
-global_t init_global(void);
-void push(stack_t **head, unsigned int number);
-void pall(stack_t **head, unsigned int number);
-int compile(char *content, stack_t **stack, unsigned int counter, FILE *file);
-void free_stack(stack_t *head);
-void print_queue(stack_t **head, unsigned int line_number);
-void add_new_node(stack_t **head, int n);
-void addqueue(stack_t **head, int n);
+	char *buffer;
+} free_t;
+
+extern free_t var_global;
+
+void *_calloc(unsigned int nmemb, unsigned int size);
+void optacodevalid(char *opcode, unsigned int line_number,
+stack_t **stack);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void free_dlistint(stack_t *head);
+void fileread(char *argv, stack_t **stack);
+int numberchecker(char *str);
+void nop(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+
 #endif

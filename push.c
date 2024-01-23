@@ -1,52 +1,63 @@
 #include "monty.h"
-
 /**
- * push - Pushes a new element onto the stack
- * @stack: Pointer to the head of the stack
- * @line_number: Line number
- *
- * Return: No return value
+ * push - enter a value to the stack (linked list)
+ * @stack: the stack to be added
+ * @line_number: the line of the file read
+ * Return: nothing
  */
+
 void push(stack_t **stack, unsigned int line_number)
 {
-	int n, g = 0, flag = 0;
+	stack_t *newnode;
+	char *digit;
+	int num;
 
-	if (!global.arg)
+	digit = strtok(NULL, "\t\n ");
+	if (digit == NULL || numberchecker(digit))
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		fclose(global.file);
-		free(global.content);
-		free_stack(*stack);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		free_dlistint(*stack);
+		fclose(var_global.file);
+		free(var_global.buffer);
 		exit(EXIT_FAILURE);
 	}
-	else
+	newnode = malloc(sizeof(stack_t));
+	if (newnode == NULL)
 	{
-		if (global.arg[0] == '-')
-			g++;
-		while (global.arg[g] != '\0')
-		{
-			if (global.arg[g] < '0' || global.arg[g] > '9')
-			{
-				flag = 1;
-				break;
-			}
-			g++;
-		}
-
-		if (flag == 1)
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			fclose(global.file);
-			free(global.content);
-			free_stack(*stack);
-			exit(EXIT_FAILURE);
-		}
+		fprintf(stderr, "Error: malloc failed\n");
+		free_dlistint(*stack);
+		exit(EXIT_FAILURE);
 	}
+	num = atoi(digit);
+	newnode->n = num;
+	newnode->next = *stack;
+	newnode->prev = NULL;
+	if (*stack != NULL)
+	{
+		(*stack)->prev = newnode;
+	}
+	*stack = newnode;
+}
+/**
+ * numberchecker - checks if the string is a digit
+ * @str: string to be checked
+ * Return: nothing
+ */
+int numberchecker(char *str)
+{
+	unsigned int i;
 
-	n = atoi(global.arg);
-
-	if (global.flag == 0)
-		add_new_node(stack, n);
-	else
-		addqueue(stack, n);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '-')
+		{
+			i++;
+			continue;
+		}
+		if (isdigit(str[i]) == 0)
+			return (1);
+		i++;
+	}
+	return (0);
 }
